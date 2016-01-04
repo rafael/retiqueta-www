@@ -93,8 +93,8 @@ gulp.task('deploy', ['default'], function() {
   var fs = require('fs');
   var s3 = require('gulp-s3');
   var awsCredentials = {
-    key: process.env.AWS_KEY,
-    secret: process.env.AWS_SECRET,
+    key: process.env.AWS_ACCESS_KEY_ID,
+    secret: process.env.AWS_SECRET_ACCESS_KEY,
     bucket: process.env.AWS_BUCKET,
     region: process.env.AWS_REGION
   };
