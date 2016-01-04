@@ -15,18 +15,25 @@
     text-decoration: none;
     overflow: hidden;
     text-indent: -999px;
-  }
+    width: 60px;
+    height: 60px;
+    position: relative;
 
-  .facebook a {
-    background: transparent url('../images/sprite/facebook-icon.png') no-repeat;
-    width: 26px;
-    height: 27px;
-  }
+    &:before {
+      color: #fff;
+      font-size: 55px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      text-indent: 0;
+    }
 
-  .instagram a {
-    background: transparent url('../images/sprite/instagram-icon.png') no-repeat;
-    width: 30px;
-    height: 27px;
+    &:hover:before {
+      color: #ef4d5c;
+    }
   }
 }
 

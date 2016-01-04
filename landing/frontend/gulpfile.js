@@ -82,7 +82,12 @@ gulp.task('html', function() {
   return gulp.src('src/index.html').pipe(gulp.dest('build'));
 });
 
-gulp.task('default', ['html', 'images', 'stylesheets', 'javascripts']);
+gulp.task('fonts', function() {
+  fs.removeSync('build/fonts');
+  return gulp.src('src/fonts/*').pipe(gulp.dest('build/fonts'));
+});
+
+gulp.task('default', ['html', 'images', 'stylesheets', 'javascripts', 'fonts']);
 
 gulp.task('deploy', ['default'], function() {
   var fs = require('fs');
