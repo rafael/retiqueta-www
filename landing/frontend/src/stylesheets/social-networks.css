@@ -1,0 +1,38 @@
+.social-networks {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 45px;
+
+  .icon {
+    margin-left: 15px;
+
+    &:first-child { margin-left: 0; }
+  }
+
+  a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    overflow: hidden;
+    text-indent: -999px;
+  }
+
+  .facebook a {
+    background: transparent url('../images/sprite/facebook-icon.png') no-repeat;
+    width: 26px;
+    height: 27px;
+  }
+
+  .instagram a {
+    background: transparent url('../images/sprite/instagram-icon.png') no-repeat;
+    width: 30px;
+    height: 27px;
+  }
+}
+
+
+@media only screen and (min-width : 768px) {
+  .social-networks {
+    margin-top: 80px;
+  }
+}

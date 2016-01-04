@@ -1,0 +1,40 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #000 url('../images/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  font-family: 'Ubuntu', sans-serif;
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+}
+
+.landing-page {
+  padding: 45px 35px;
+}
+
+.logo {
+  width: 60px;
+  height: auto;
+  float: left;
+}
+
+@media only screen and (min-width : 568px) {
+  .logo {
+    width: auto;
+  }
+}
+
+@media only screen and (min-width : 768px) {
+  .logo {
+    float: none;
+  }
+}

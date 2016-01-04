@@ -1,0 +1,20 @@
+{
+  "name": "retiqueta-backend",
+  "version": "0.0.1",
+  "description": "Landing page API for retiqueta",
+  "dependencies": {
+    "axios": "^0.8.1",
+    "dotenv": "^1.2.0",
+    "es6-promise": "^3.0.2"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.2.26",
+    "fs-extra": "^0.26.3",
+    "gulp": "^3.9.0",
+    "gulp-install": "^0.6.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.7",
+    "gulp-zip": "^3.0.2",
+    "run-sequence": "^1.1.5"
+  }
+}
