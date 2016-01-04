@@ -1,33 +1,53 @@
 var gulp = require('gulp');
 var fs = require('fs-extra');
+var gutil = require('gulp-util');
+var gulpif = require('gulp-if');
+var minify = typeof gutil.env.minify === 'undefined' || gutil.env.minify === 'true';
 
 gulp.task('stylesheets', function () {
   fs.removeSync('build/stylesheets');
 
   var postcss    = require('gulp-postcss');
   var sourcemaps = require('gulp-sourcemaps');
-  var processors = [
-    require('postcss-import'),
-    //require('cssnano'),
-    require('postcss-sprites')({
+  var cssnano = require('gulp-cssnano');
+
+  function processors() {
+    var ps = [];
+
+    // unify files using @import directive
+    ps.push(require('postcss-import'));
+
+    // sprite generation
+    ps.push(require('postcss-sprites')({
       stylesheetPath: './build/stylesheets',
       spritePath    : './build/images/sprite.png',
       retina        : true,
       filterBy      : function(img) { return /images\/sprite/.test(img.url) }
-    }),
-    require('precss'),
-    require('autoprefixer')({ browsers: ['last 2 versions'] })
-  ];
+    }));
+
+    // use sass syntax
+    ps.push(require('precss'));
+
+    // prefix css properties for crossbrowser support
+    ps.push(require('autoprefixer')({ browsers: ['last 2 versions'] }));
+
+    return ps;
+  }
 
   return gulp.src('src/stylesheets/app.css')
     .pipe(sourcemaps.init())
-    .pipe(postcss(processors))
+    .pipe(postcss(processors()))
+    .pipe(gulpif(minify, cssnano({
+      discardComments: { removeAll: true }
+    })))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/stylesheets/'));
 });
 
 gulp.task('javascripts', function() {
   fs.removeSync('build/javascripts');
+
+  var uglify = require('gulp-uglify');
 
   require('dotenv').load();
 
@@ -43,12 +63,17 @@ gulp.task('javascripts', function() {
     }).bundle()
     .pipe(source('app.js'))
     .pipe(buffer())
+    .pipe(gulpif(minify, uglify()))
     .pipe(gulp.dest('./build/javascripts'));
 });
 
 gulp.task('images', function() {
   fs.removeSync('build/images');
+
+  var imagemin = require('gulp-imagemin');
+
   return gulp.src(['src/images/**/*', '!src/images/sprite/', '!src/images/sprite/**'])
+    .pipe(imagemin({ optimizationLevel: 3, progressive: true, multipass: true }))
     .pipe(gulp.dest('build/images'));
 });
 
@@ -60,8 +85,8 @@ gulp.task('html', function() {
 gulp.task('default', ['html', 'images', 'stylesheets', 'javascripts']);
 
 gulp.task('deploy', ['default'], function() {
-  var fs = require("fs");
-  var s3 = require("gulp-s3");
+  var fs = require('fs');
+  var s3 = require('gulp-s3');
   var awsCredentials = {
     key: process.env.AWS_KEY,
     secret: process.env.AWS_SECRET,
@@ -71,7 +96,7 @@ gulp.task('deploy', ['default'], function() {
 
   return gulp.src('build/**')
     .pipe(s3(awsCredentials, {
-      uploadPath: "/",
+      uploadPath: '/',
       headers: {
         'x-amz-acl': 'public-read'
       }

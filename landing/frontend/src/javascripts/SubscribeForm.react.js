@@ -75,7 +75,7 @@ var SubscribeForm = React.createClass({
     if (this.state.waitingForResponse) {
       return (
         <button className="disabled">
-          <img src="http://samherbert.net/svg-loaders/svg-loaders/three-dots.svg" />
+          <img src="/images/loader.svg" />
         </button>
       );
     }
