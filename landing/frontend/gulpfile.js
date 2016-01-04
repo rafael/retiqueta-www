@@ -69,7 +69,11 @@ gulp.task('javascripts', function() {
 
 gulp.task('images', function() {
   fs.removeSync('build/images');
+
+  var imagemin = require('gulp-imagemin');
+
   return gulp.src(['src/images/**/*', '!src/images/sprite/', '!src/images/sprite/**'])
+    .pipe(imagemin({ optimizationLevel: 3, progressive: true, multipass: true }))
     .pipe(gulp.dest('build/images'));
 });
 
