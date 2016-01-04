@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var fs = require('fs-extra');
 var gutil = require('gulp-util');
+var gulpif = require('gulp-if');
 var minify = typeof gutil.env.minify === 'undefined' || gutil.env.minify === 'true';
 
 gulp.task('stylesheets', function () {
@@ -8,17 +9,13 @@ gulp.task('stylesheets', function () {
 
   var postcss    = require('gulp-postcss');
   var sourcemaps = require('gulp-sourcemaps');
+  var cssnano = require('gulp-cssnano');
 
   function processors() {
     var ps = [];
 
     // unify files using @import directive
     ps.push(require('postcss-import'));
-
-    // minify css
-    if(minify) {
-      ps.push(require('cssnano'));
-    }
 
     // sprite generation
     ps.push(require('postcss-sprites')({
@@ -40,6 +37,9 @@ gulp.task('stylesheets', function () {
   return gulp.src('src/stylesheets/app.css')
     .pipe(sourcemaps.init())
     .pipe(postcss(processors()))
+    .pipe(gulpif(minify, cssnano({
+      discardComments: { removeAll: true }
+    })))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/stylesheets/'));
 });
@@ -47,7 +47,6 @@ gulp.task('stylesheets', function () {
 gulp.task('javascripts', function() {
   fs.removeSync('build/javascripts');
 
-  var gulpif = require('gulp-if');
   var uglify = require('gulp-uglify');
 
   require('dotenv').load();
