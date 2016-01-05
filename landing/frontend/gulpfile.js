@@ -88,11 +88,7 @@ gulp.task('fonts', function() {
   return gulp.src('src/fonts/*').pipe(gulp.dest('build/fonts'));
 });
 
-gulp.task('default', ['html', 'images', 'stylesheets', 'javascripts', 'fonts'], function(callback) {
-  return gulp.src(['./build/**/*.html', './build/**/*.css', './build/**/*.js'])
-    .pipe(gzip())
-    .pipe(gulp.dest('./build'));
-});
+gulp.task('default', ['html', 'images', 'stylesheets', 'javascripts', 'fonts']);
 
 gulp.task('deploy', ['default'], function() {
   var fs = require('fs');
@@ -105,8 +101,10 @@ gulp.task('deploy', ['default'], function() {
   };
 
   return gulp.src('build/**')
+    .pipe(gzip())
     .pipe(s3(awsCredentials, {
       uploadPath: '/',
+      gzippedOnly: true,
       headers: {
         'x-amz-acl': 'public-read'
       }
