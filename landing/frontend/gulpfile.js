@@ -3,6 +3,7 @@ var fs = require('fs-extra');
 var gutil = require('gulp-util');
 var gulpif = require('gulp-if');
 var minify = typeof gutil.env.minify === 'undefined' || gutil.env.minify === 'true';
+var gzip = require('gulp-gzip');
 
 gulp.task('stylesheets', function () {
   fs.removeSync('build/stylesheets');
@@ -87,7 +88,11 @@ gulp.task('fonts', function() {
   return gulp.src('src/fonts/*').pipe(gulp.dest('build/fonts'));
 });
 
-gulp.task('default', ['html', 'images', 'stylesheets', 'javascripts', 'fonts']);
+gulp.task('default', ['html', 'images', 'stylesheets', 'javascripts', 'fonts'], function(callback) {
+  gulp.src(['./build/**/*.html', './build/**/*.css', './build/**/*.js'])
+    .pipe(gzip())
+    .pipe(gulp.dest('./build'));
+});
 
 gulp.task('deploy', ['default'], function() {
   var fs = require('fs');
