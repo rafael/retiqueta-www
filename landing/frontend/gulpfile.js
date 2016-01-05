@@ -89,7 +89,7 @@ gulp.task('fonts', function() {
 });
 
 gulp.task('default', ['html', 'images', 'stylesheets', 'javascripts', 'fonts'], function(callback) {
-  gulp.src(['./build/**/*.html', './build/**/*.css', './build/**/*.js'])
+  return gulp.src(['./build/**/*.html', './build/**/*.css', './build/**/*.js'])
     .pipe(gzip())
     .pipe(gulp.dest('./build'));
 });
