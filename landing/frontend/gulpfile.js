@@ -4,12 +4,29 @@ var gutil = require('gulp-util');
 var gulpif = require('gulp-if');
 var minify = typeof gutil.env.minify === 'undefined' || gutil.env.minify === 'true';
 
+function plumber(type) {
+  var plumber = require('gulp-plumber');
+
+  return plumber({
+    errorHandler: function (error) {
+      gutil.log(gutil.colors.red(type + ' error:'), error.message);
+      this.emit('end');
+  }});
+}
+
 gulp.task('stylesheets', function () {
   fs.removeSync('build/stylesheets');
 
   var postcss    = require('gulp-postcss');
   var sourcemaps = require('gulp-sourcemaps');
-  var cssnano = require('gulp-cssnano');
+
+  function cssnano() {
+    var cssnano = require('gulp-cssnano');
+
+    return cssnano({
+      discardComments: { removeAll: true }
+    });
+  }
 
   function processors() {
     var ps = [];
@@ -35,11 +52,10 @@ gulp.task('stylesheets', function () {
   }
 
   return gulp.src('src/stylesheets/app.css')
+    .pipe(plumber('Stylesheet'))
     .pipe(sourcemaps.init())
     .pipe(postcss(processors()))
-    .pipe(gulpif(minify, cssnano({
-      discardComments: { removeAll: true }
-    })))
+    .pipe(gulpif(minify, cssnano()))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('build/stylesheets/'));
 });
@@ -51,16 +67,22 @@ gulp.task('javascripts', function() {
 
   require('dotenv').load();
 
-  var browserify = require('browserify');
   var source = require('vinyl-source-stream');
   var buffer = require('vinyl-buffer');
   var reactify = require('reactify');
   var envify = require('envify');
 
-  return browserify({
+  function browserify() {
+    var browserify = require('browserify');
+
+    return browserify({
       entries: './src/javascripts/app.js',
       transform: [reactify, envify]
-    }).bundle()
+    }).bundle();
+  }
+
+  return plumber('Javascript')
+    .pipe(browserify())
     .pipe(source('app.js'))
     .pipe(buffer())
     .pipe(gulpif(minify, uglify()))
@@ -113,4 +135,14 @@ gulp.task('watch', ['default'], function() {
   gulp.watch('src/javascripts/**/*.js', ['javascripts']);
   gulp.watch('src/images/**/*.css', ['images']);
   gulp.watch('src/index.html', ['html']);
+});
+
+gulp.task('server', ['watch'], function() {
+  var server = require('gulp-webserver');
+
+  return gulp.src('build')
+    .pipe(server({
+      host: '0.0.0.0',
+      livereload: true
+    }));
 });
