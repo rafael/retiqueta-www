@@ -4,9 +4,13 @@ html, body {
   padding: 0;
 }
 
-body {
+html {
   background: #000 url('../images/bg.jpg') no-repeat center center fixed;
   background-size: cover;
+}
+
+body {
+  background: transparent url('../images/overlay-pattern.png') repeat;
   color: #fff;
   font-family: 'Ubuntu', sans-serif;
 
