@@ -114,3 +114,13 @@ gulp.task('watch', ['default'], function() {
   gulp.watch('src/images/**/*.css', ['images']);
   gulp.watch('src/index.html', ['html']);
 });
+
+gulp.task('server', ['watch'], function() {
+  var server = require('gulp-webserver');
+
+  return gulp.src('build')
+    .pipe(server({
+      host: '0.0.0.0',
+      livereload: true
+    }));
+});
