@@ -3,6 +3,7 @@ var fs = require('fs-extra');
 var gutil = require('gulp-util');
 var gulpif = require('gulp-if');
 var minify = typeof gutil.env.minify === 'undefined' || gutil.env.minify === 'true';
+var gzip = require('gulp-gzip');
 
 function plumber(type) {
   var plumber = require('gulp-plumber');
@@ -122,8 +123,10 @@ gulp.task('deploy', ['default'], function() {
   };
 
   return gulp.src('build/**')
+    .pipe(gzip())
     .pipe(s3(awsCredentials, {
       uploadPath: '/',
+      gzippedOnly: true,
       headers: {
         'x-amz-acl': 'public-read'
       }
