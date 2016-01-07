@@ -15,20 +15,22 @@
     text-decoration: none;
     overflow: hidden;
     text-indent: -999px;
-    width: 60px;
-    height: 60px;
+    width: 35px;
+    height: 35px;
     position: relative;
 
     &:before {
       color: #fff;
-      font-size: 55px;
+      font-size: 35px;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      text-align: center;
+      overflow: visible;
+      text-align: left;
       text-indent: 0;
+      transition: all 0.5s ease;
     }
 
     &:hover:before {
