@@ -100,20 +100,58 @@
     }
 
     .highlight-text {
-      background: url('../images/sprite/soon.png') no-repeat;
-      width: 178px;
-      height: 76px;
-      overflow: hidden;
-      text-indent: -999px;
-      margin: 0;
-      padding: 0;
-      max-width: none;
-      text-transform: uppercase;
-      text-align: center;
+      background: none;
       box-shadow: none;
-    }
+      height: 76px;
+      margin: 0;
+      max-width: none;
+      padding: 0;
+      position: relative;
+      width: 178px;
 
-    .highlight-text { background-color: transparent; }
+      span {
+        background: #ef4d5c;
+        font-size: 32px;
+        height: 39px;
+        line-height: 39px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 155px;
+        z-index: 10;
+      }
+
+      .shadow-bg {
+        background: #c63f4c;
+        bottom: 0;
+        height: 57px;
+        position: absolute;
+        right: 0;
+        width: 132px;
+
+        &:before {
+          border-bottom: 19px solid #c63f4c;
+          border-right: 23px solid transparent;
+          content: '';
+          height: 0;
+          position: absolute;
+          right: 0;
+          top: -19px;
+          width: 0;
+        }
+
+        &:after {
+          border-top: 37px solid #c63f4c;
+          border-left: 46px solid transparent;
+          bottom: 0;
+          content: '';
+          height: 0;
+          left: -46px;
+          position: absolute;
+          width: 0;
+        }
+      }
+    }
 
     label {
       font-weight: bold;

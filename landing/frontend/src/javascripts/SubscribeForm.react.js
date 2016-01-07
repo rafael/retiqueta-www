@@ -101,6 +101,7 @@ var SubscribeForm = React.createClass({
         <div className="subscribe-form">
           <div className="highlight-text">
             <span>Pronto</span>
+            <div className="shadow-bg" />
           </div>
 
           <div className="input-control">
