@@ -1,0 +1,14 @@
+admin:
+  build: .
+  volumes:
+    - .:/app
+  ports:
+    - "3002:3000"
+  external_links:
+    # This assumes that you are already running the
+    # retiquetaapi environment, that can be found
+    # at the following url:
+    # https://github.com/rafael/retiqueta-api
+    - retiquetaapi_db_1:db
+  environment:
+    MYSQL_ROOT_PASSWORD: 123456

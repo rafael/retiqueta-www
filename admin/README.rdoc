@@ -1,28 +1,18 @@
-== README
+== Admin retiqueta
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a small web app that provides an admin module for the retiqueta app.
 
-Things you may want to cover:
+# Usage
 
-* Ruby version
+1) Make sure that you have the retiqueta api containers running. See https://github.com/rafael/retiqueta-api/ for more instruction in how to do that.
+2) Run the admin container:
 
-* System dependencies
+```
+$ docker-compose up
+```
 
-* Configuration
+3) Go to the following url in you docker-machine ip:
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+```
+http://192.168.99.100:3002/admin
+```
