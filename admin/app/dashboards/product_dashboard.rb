@@ -40,18 +40,18 @@ class ProductDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :user,
-    :product_pictures,
-    :id,
-    :uuid,
+    :title,
+    :description,
+    :featured,
+    :status,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :uuid,
     :user,
     :product_pictures,
-    :id,
-    :uuid,
     :title,
     :description,
     :category,
@@ -64,13 +64,6 @@ class ProductDashboard < Administrate::BaseDashboard
     :lat_lon,
     :created_at,
     :updated_at,
-    :cached_votes_total,
-    :cached_votes_score,
-    :cached_votes_up,
-    :cached_votes_down,
-    :cached_weighted_score,
-    :cached_weighted_total,
-    :cached_weighted_average,
   ]
 
   # FORM_ATTRIBUTES
@@ -78,7 +71,6 @@ class ProductDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :user,
-    :product_pictures,
     :uuid,
     :title,
     :description,
@@ -89,20 +81,13 @@ class ProductDashboard < Administrate::BaseDashboard
     :currency,
     :status,
     :location,
-    :lat_lon,
-    :cached_votes_total,
-    :cached_votes_score,
-    :cached_votes_up,
-    :cached_votes_down,
-    :cached_weighted_score,
-    :cached_weighted_total,
-    :cached_weighted_average,
+    :product_pictures,
   ]
 
   # Overwrite this method to customize how products are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(product)
-  #   "Product ##{product.id}"
-  # end
+   def display_resource(product)
+     "Product id ##{product.uuid}"
+   end
 end

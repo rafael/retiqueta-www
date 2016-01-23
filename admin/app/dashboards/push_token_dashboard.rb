@@ -26,21 +26,20 @@ class PushTokenDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :user,
-    :id,
     :uuid,
     :platform,
+    :environment,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :user,
-    :id,
     :uuid,
-    :platform,
+    :user,
     :token,
     :device_id,
     :environment,
+    :platform,
     :created_at,
     :updated_at,
   ]

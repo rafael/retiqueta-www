@@ -30,27 +30,27 @@ class ProfileDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :user,
-    :id,
+    :country,
+    :first_name,
+    :last_name,
     :created_at,
-    :updated_at,
   ]
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :user,
-    :id,
+    :bio,
+    :country,
+    :first_name,
+    :last_name,
+    :website,
     :created_at,
     :updated_at,
     :pic_file_name,
     :pic_content_type,
     :pic_file_size,
     :pic_updated_at,
-    :bio,
-    :country,
-    :first_name,
-    :last_name,
-    :website,
   ]
 
   # FORM_ATTRIBUTES
@@ -58,10 +58,6 @@ class ProfileDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :user,
-    :pic_file_name,
-    :pic_content_type,
-    :pic_file_size,
-    :pic_updated_at,
     :bio,
     :country,
     :first_name,
@@ -72,7 +68,7 @@ class ProfileDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how profiles are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(profile)
-  #   "Profile ##{profile.id}"
-  # end
+  def display_resource(profile)
+     "Profile ##{profile.id}"
+  end
 end
