@@ -34,7 +34,7 @@
     }
 
     &:hover:before {
-      color: #ef4d5c;
+      color: $color-geraldine;
     }
   }
 }
