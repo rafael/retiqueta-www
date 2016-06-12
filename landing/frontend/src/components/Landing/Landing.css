@@ -1,0 +1,56 @@
+.Landing {
+  .slogan {
+    font-size: 24px;
+    text-align: right;
+
+    .text-1, .text-2 {
+      margin-bottom: 0.2em;
+    }
+
+    .text-3 {
+      font-size: 12px;
+      font-weight: 300;
+      margin: 10px 0 20px;
+    }
+  }
+}
+
+@media only screen and (min-width : 568px) {
+  .Landing .slogan {
+    margin-bottom: 35px;
+
+    .text-1, .text-2 {
+      font-size: 38px;
+    }
+
+    .text-3 {
+      font-size: 18px;
+    }
+  }
+}
+
+@media only screen and (min-width : 768px) {
+  .Landing .slogan {
+    margin: 25px auto;
+    width: 400px;
+    text-align: left;
+
+    .text-1 {
+      font-size: 40px;
+    }
+
+    .text-2 {
+      font-size: 40px;
+    }
+
+    .text-3 {
+      margin-top: 20px;
+    }
+  }
+}
+
+@media only screen  and (min-width : 920px) {
+  .Landing .slogan {
+    margin-left: 20%;
+  }
+}

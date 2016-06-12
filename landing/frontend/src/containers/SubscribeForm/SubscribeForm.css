@@ -1,9 +1,11 @@
+@import '../../colors.css';
+
 .subscribe-form-wrapper {
-  margin-top: 15px;
+  margin-top: 25px;
 
   .highlight-text {
     background: $color-geraldine;
-    font-weight: bold;
+    font-weight: 300;
     margin: 10px auto 45px;
     padding: 5px 0;
     max-width: 300px;
@@ -19,7 +21,8 @@
 
   input[type="text"] {
     background: transparent;
-    border: 2px solid #fff;
+    border: 1px solid #fff;
+    color: inherit;
     font-family: 'Ubuntu', sans-serif;
     font-size: 16px;
     height: 40px;
@@ -29,22 +32,22 @@
   }
 
   ::-webkit-input-placeholder {
-    font-style: italic;
+    font-weight: 300;
     color: #fff;
   }
 
   :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    font-style: italic;
+    font-weight: 300;
     color: #fff;
   }
 
   ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    font-style: italic;
+    font-weight: 300;
     color: #fff;
   }
 
   :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    font-style: italic;
+    font-weight: 300;
     color: #fff;
   }
 
@@ -52,6 +55,7 @@
     background: $color-geraldine;
     border: none;
     border-bottom: 2px solid $color-roman;
+    color: inherit;
     font-size: 16px;
     height: 40px;
     margin: 0;
@@ -88,10 +92,9 @@
   }
 }
 
-
 @media only screen and (min-width : 768px) {
   .subscribe-form-wrapper {
-    margin: 35px auto;
+    margin: 55px auto 0;
     width: 630px;
 
     .subscribe-form {
@@ -177,10 +180,14 @@
   }
 }
 
+@media only screen  and (min-width : 920px) {
+  .subscribe-form-wrapper {
+    margin-left: 20%;
+  }
+}
 
 @media only screen  and (min-width : 1280px) {
   .subscribe-form-wrapper {
-    margin: 15px 0 0 445px;
     width: 760px;
 
     input[type="text"] {
