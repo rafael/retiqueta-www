@@ -2,7 +2,7 @@
   margin-top: 15px;
 
   .highlight-text {
-    background: #ef4d5c;
+    background: $color-geraldine;
     font-weight: bold;
     margin: 10px auto 45px;
     padding: 5px 0;
@@ -49,9 +49,9 @@
   }
 
   button {
-    background: #ef4d5c;
+    background: $color-geraldine;
     border: none;
-    border-bottom: 2px solid #c63f4c;
+    border-bottom: 2px solid $color-roman;
     font-size: 16px;
     height: 40px;
     margin: 0;
@@ -62,7 +62,7 @@
     text-align: center;
 
     &.disabled {
-      background: #c63f4c;
+      background: $color-roman;
     }
 
     img {
@@ -110,7 +110,7 @@
       width: 178px;
 
       span {
-        background: #ef4d5c;
+        background: $color-geraldine;
         font-size: 32px;
         height: 39px;
         line-height: 39px;
@@ -122,7 +122,7 @@
       }
 
       .shadow-bg {
-        background: #c63f4c;
+        background: $color-roman;
         bottom: 0;
         height: 57px;
         position: absolute;
@@ -130,7 +130,7 @@
         width: 132px;
 
         &:before {
-          border-bottom: 19px solid #c63f4c;
+          border-bottom: 19px solid $color-roman;
           border-right: 23px solid transparent;
           content: '';
           height: 0;
@@ -141,7 +141,7 @@
         }
 
         &:after {
-          border-top: 37px solid #c63f4c;
+          border-top: 37px solid $color-roman;
           border-left: 46px solid transparent;
           bottom: 0;
           content: '';
