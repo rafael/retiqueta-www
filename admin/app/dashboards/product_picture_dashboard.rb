@@ -51,13 +51,8 @@ class ProductPictureDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :user,
     :product,
     :position,
-    :pic_file_name,
-    :pic_content_type,
-    :pic_file_size,
-    :pic_updated_at,
   ]
 
   # Overwrite this method to customize how product pictures are displayed

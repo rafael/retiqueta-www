@@ -61,7 +61,6 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :profile,
-    :push_tokens,
     :username,
     :email,
   ]
