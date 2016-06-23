@@ -70,7 +70,6 @@ class ProductDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :user,
     :uuid,
     :title,
     :description,
@@ -78,10 +77,8 @@ class ProductDashboard < Administrate::BaseDashboard
     :price,
     :original_price,
     :featured,
-    :currency,
     :status,
-    :location,
-    :product_pictures,
+    :location
   ]
 
   # Overwrite this method to customize how products are displayed
