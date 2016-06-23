@@ -9,6 +9,7 @@ gem 'unicorn', '4.9.0'
 gem 'turbolinks'
 
 gem 'jquery-rails'
+gem 'bourbon'
 gem "administrate", '0.2.2'
 gem 'pg'
 
