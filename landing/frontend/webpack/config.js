@@ -1,16 +1,20 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var precss = require('precss');
 var autoprefixer = require('autoprefixer');
-var postcssImport = require('postcss-import')
+var postcssImport = require('postcss-import');
+var emailImages = require('fs')
+  .readdirSync('./email_images')
+  .filter(function(f) { return /\.(png|jpg|svg)$/.test(f); })
+  .map(function(f) { return './email_images/' + f; });
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
   entry: [
     './src/index.js'
-  ],
+  ].concat(emailImages),
   output: {
     path: path.join(__dirname, '../dist'),
     filename: 'scripts/bundle.js',
@@ -42,12 +46,16 @@ module.exports = {
         })
       },
       {
-        test   : /\.(ttf|eot|svg|woff|woff2)$/,
+        test: /email_images\/.*\.(png|jpg|svg)$/,
+        loader: 'file-loader?name=email_images/[name].[ext]'
+      },
+      {
+        test   : /src\/.*\.(ttf|eot|svg|woff|woff2)$/,
         loader: 'file-loader?name=fonts/[name].[ext]'
       },
       {
-        test: /\.(png|jpg)$/,
-        loader: "url-loader?limit=10000&name=images/[name].[ext]"
+        test: /src\/.*\.(png|jpg)$/,
+        loader: 'url-loader?limit=10000&name=images/[name].[ext]'
       }
     ]
   },
