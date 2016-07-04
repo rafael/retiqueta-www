@@ -10,5 +10,10 @@ admin:
     # at the following url:
     # https://github.com/rafael/retiqueta-api
     - retiquetaapi_db_1:db
+    - retiquetaapi_redis_1:redis
   environment:
+    REDIS_SERVICE_HOST: redis
+    REDIS_SERVICE_PORT: 6379
     MYSQL_ROOT_PASSWORD: 123456
+    ADMIN_USER: admin
+    ADMIN_PASSWORD: test
