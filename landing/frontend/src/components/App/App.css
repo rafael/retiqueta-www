@@ -1,0 +1,54 @@
+@import './normalize.css';
+@import './flaticon.css';
+
+html, body, #root, .App {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.Content {
+  min-height: 100%;
+  margin-bottom: -80px;
+  .pushup {
+    height: 80px;
+  }
+}
+
+html {
+  background: #000 url('./bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+body {
+  color: #fff;
+  font-family: 'Ubuntu', sans-serif;
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+}
+
+.App {
+  padding: 45px 35px 0;
+}
+
+.logo {
+  width: 60px;
+  height: auto;
+  float: left;
+}
+
+@media only screen and (min-width : 568px) {
+  .logo {
+    width: 86px;
+  }
+}
+
+@media only screen and (min-width : 768px) {
+  .logo {
+    float: none;
+  }
+}
