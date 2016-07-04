@@ -1,0 +1,126 @@
+@import 'settings';
+@import 'foundation';
+
+.header {
+
+  .columns {
+    padding-bottom: 0;
+  }
+
+  .logo {
+    margin-left: 50px;
+  }
+
+  .links {
+    td {
+      height: 46px;
+      vertical-align: middle;
+    }
+
+    .hashtag {
+      color: $color-silver-chalice;
+      text-align: right;
+    }
+
+    .icon {
+      width: 28px;
+      padding-left: 12px;
+
+      img {
+        max-width: 28px !important;
+        min-width: 28px !important;
+      }
+    }
+
+    .icon.blog {
+      padding-right: 50px;
+    }
+  }
+}
+
+
+.frame {
+  .border-top {
+    background: #F2F2F2 url('http://www.retiqueta.com/email_images/bg_top.jpg') repeat;
+  }
+
+  .border-bottom {
+    background: #F2F2F2 url('http://www.retiqueta.com/email_images/bg_bottom.jpg') repeat;
+  }
+
+  .border-left {
+    background: #F2F2F2 url('http://www.retiqueta.com/email_images/bg_left.jpg') repeat;
+    height: 100% !important;
+    padding-bottom: 0 !important;
+  }
+
+  .border-right {
+    background: #F2F2F2 url('http://www.retiqueta.com/email_images/bg_right.jpg') repeat;
+    height: 100% !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+.main-content {
+  padding-bottom: 0 !important;
+
+  img {
+    width: 180px;
+    height: 45px;
+  }
+}
+
+.text-content th {
+  padding: 0 35px;
+}
+
+.btn-help.button {
+  table td {
+    padding-left: 70px;
+    padding-right: 70px;
+    background-color: $color-jungle-green;
+    a {
+      border-color: $color-jungle-green;
+      color: $white;
+      font-weight: normal;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.signature span {
+  color: $color-froly;
+}
+
+.outro {
+  .logo-top, .logo-bottom {
+    img {
+      width: 80px;
+      height: 40px;
+    }
+  }
+
+  .logo-bottom {
+    background-color: $color-froly;
+  }
+
+  .text-content {
+    background-color: $color-froly;
+
+    p {
+      color: $white;
+      font-size: 0.6em;
+      margin-bottom: 0;
+
+      -webkit-hyphens: none;
+      -moz-hyphens:    none;
+      -ms-hyphens:     none;
+      hyphens:         none;
+    }
+
+    a {
+      color: $white !important;
+      text-decoration: none !important;
+    }
+  }
+}
