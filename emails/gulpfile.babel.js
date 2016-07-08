@@ -115,7 +115,9 @@ function inliner(css) {
       removeStyleTags: false,
       removeLinkTags: false
     })
-    .pipe($.replace, '<!-- <style> -->', `<style>${mqCss}</style>`);
+    .pipe($.replace, '<!-- <style> -->', `<style>${mqCss}</style>`)
+    .pipe($.replace, '<link rel="stylesheet" type="text/css" href="css/app.css">', '')
+    .pipe($.prettify, {indent_size: 2});
   return pipe();
 }
 
