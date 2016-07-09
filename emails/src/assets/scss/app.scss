@@ -70,8 +70,17 @@
   }
 }
 
-.text-content th {
-  padding: 0 35px;
+.text-content {
+  p {
+    -webkit-hyphens: none;
+    -moz-hyphens:    none;
+    -ms-hyphens:     none;
+    hyphens:         none;
+  }
+
+  th {
+    padding: 0 35px;
+  }
 }
 
 .btn-help.button {
@@ -87,6 +96,25 @@
     }
   }
 }
+
+.btn-google-play {
+  text-align: right;
+}
+
+.btn-google-play, .btn-app-store {
+  img {
+    max-width: 135px !important;
+    height: 40px;
+    display: inline-block !important;
+  }
+}
+
+@media only screen and (max-width: #{$global-breakpoint}) {
+  .btn-google-play, .btn-app-store {
+    text-align: center !important;
+  }
+}
+
 
 .signature span {
   color: $color-froly;
@@ -111,11 +139,6 @@
       color: $white;
       font-size: 0.6em;
       margin-bottom: 0;
-
-      -webkit-hyphens: none;
-      -moz-hyphens:    none;
-      -ms-hyphens:     none;
-      hyphens:         none;
     }
 
     a {
