@@ -88,6 +88,25 @@
   }
 }
 
+.btn-google-play {
+  text-align: right;
+}
+
+.btn-google-play, .btn-app-store {
+  img {
+    max-width: 135px !important;
+    height: 40px;
+    display: inline-block !important;
+  }
+}
+
+@media only screen and (max-width: #{$global-breakpoint}) {
+  .btn-google-play, .btn-app-store {
+    text-align: center !important;
+  }
+}
+
+
 .signature span {
   color: $color-froly;
 }
