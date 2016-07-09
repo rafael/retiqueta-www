@@ -70,8 +70,17 @@
   }
 }
 
-.text-content th {
-  padding: 0 35px;
+.text-content {
+  p {
+    -webkit-hyphens: none;
+    -moz-hyphens:    none;
+    -ms-hyphens:     none;
+    hyphens:         none;
+  }
+
+  th {
+    padding: 0 35px;
+  }
 }
 
 .btn-help.button {
@@ -130,11 +139,6 @@
       color: $white;
       font-size: 0.6em;
       margin-bottom: 0;
-
-      -webkit-hyphens: none;
-      -moz-hyphens:    none;
-      -ms-hyphens:     none;
-      hyphens:         none;
     }
 
     a {
