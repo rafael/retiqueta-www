@@ -13,6 +13,22 @@
       margin: 10px 0 20px;
     }
   }
+
+  .app-links {
+    padding-top: 20px;
+    text-align: center;
+
+    .btn-appstore, .btn-googleplay {
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    img {
+      width: 70%;
+      max-width: 270px;
+      height: auto;
+    }
+  }
 }
 
 @media only screen and (min-width : 568px) {
@@ -30,21 +46,41 @@
 }
 
 @media only screen and (min-width : 768px) {
-  .Landing .slogan {
-    margin: 25px auto;
-    width: 400px;
-    text-align: left;
+  .Landing {
+    .slogan {
+      margin: 25px auto;
+      width: 400px;
+      text-align: left;
 
-    .text-1 {
-      font-size: 40px;
+      .text-1 {
+        font-size: 40px;
+      }
+
+      .text-2 {
+        font-size: 40px;
+      }
+
+      .text-3 {
+        margin-top: 20px;
+      }
     }
 
-    .text-2 {
-      font-size: 40px;
-    }
+    .app-links {
+      padding-top: 60px;
+      text-align: center;
 
-    .text-3 {
-      margin-top: 20px;
+      .btn-appstore, .btn-googleplay {
+        margin-bottom: 0;
+        display: inline-block;
+      }
+
+      .btn-appstore {
+        margin-right: 15px;
+      }
+
+      img {
+        width: 100%;
+      }
     }
   }
 }
