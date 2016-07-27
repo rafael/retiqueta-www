@@ -2,6 +2,12 @@
 
 .Footer {
   height: 80px;
+  .mix-panel {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+  }
+   
 
   .social-networks {
     display: flex;

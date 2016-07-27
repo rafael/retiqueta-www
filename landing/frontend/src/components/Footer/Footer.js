@@ -17,6 +17,10 @@ const Footer = () => (
         <a className="flaticon-blog" href="http://blog.retiqueta.com/" target="_blank">Blog</a>
       </div>
     </div>
+
+    <div className="mix-panel">
+    <a href='https://mixpanel.com/f/partner'><img src='https://cdn.mxpnl.com/site_media/images/partner/badge_blue.png' alt='Mobile Analytics' /></a>
+    </div>
   </footer>
 )
 
