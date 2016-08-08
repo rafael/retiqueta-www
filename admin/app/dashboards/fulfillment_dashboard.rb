@@ -10,6 +10,8 @@ class FulfillmentDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     order: Field::BelongsTo,
     conversation: Field::HasOne,
+    seller: Field::String,
+    buyer: Field::String,
     id: Field::Number,
     uuid: Field::String,
     status: Field::String,
@@ -33,6 +35,8 @@ class FulfillmentDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :order,
+    :seller,
+    :buyer,
     :conversation,
     :id,
     :uuid,
