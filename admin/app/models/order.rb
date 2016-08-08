@@ -2,6 +2,8 @@ class Order < ActiveRecord::Base
 
   PAID_STATUS = 'paid'
 
+  default_scope { order(created_at: :desc) }
+
   ##################
   ## associations ##
   ##################

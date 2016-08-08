@@ -31,6 +31,7 @@ class OrderDashboard < Administrate::BaseDashboard
     :payment_transaction,
     :line_items,
     :fulfillment,
+    :created_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -40,7 +41,6 @@ class OrderDashboard < Administrate::BaseDashboard
     :payment_transaction,
     :line_items,
     :fulfillment,
-    :id,
     :uuid,
     :total_amount,
     :financial_status,
@@ -54,13 +54,7 @@ class OrderDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :user,
-    :payment_transaction,
-    :line_items,
-    :fulfillment,
-    :uuid,
-    :total_amount,
     :financial_status,
-    :currency,
   ].freeze
 
   # Overwrite this method to customize how orders are displayed
