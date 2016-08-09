@@ -26,18 +26,17 @@ class CommentDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :user,
-    :content
+    :content,
+    :created_at
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :user,
-    :id,
     :conversation_id,
     :uuid,
     :data,
-    :user_pic,
     :created_at,
     :updated_at,
   ].freeze
@@ -46,11 +45,7 @@ class CommentDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :user,
-    :conversation_id,
-    :uuid,
     :data,
-    :user_pic,
   ].freeze
 
   # Overwrite this method to customize how comments are displayed
