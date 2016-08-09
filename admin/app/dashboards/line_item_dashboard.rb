@@ -10,7 +10,6 @@ class LineItemDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     order: Field::BelongsTo,
     product: Field::Polymorphic,
-    id: Field::Number,
     uuid: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -24,7 +23,6 @@ class LineItemDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :order,
     :product,
-    :id,
     :uuid,
   ].freeze
 
@@ -33,7 +31,6 @@ class LineItemDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :order,
     :product,
-    :id,
     :uuid,
     :created_at,
     :updated_at,
@@ -42,11 +39,7 @@ class LineItemDashboard < Administrate::BaseDashboard
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = [
-    :order,
-    :product,
-    :uuid,
-  ].freeze
+  FORM_ATTRIBUTES = [].freeze
 
   # Overwrite this method to customize how line items are displayed
   # across all pages of the admin dashboard.
