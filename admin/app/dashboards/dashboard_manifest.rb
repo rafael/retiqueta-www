@@ -22,6 +22,7 @@ class DashboardManifest
     :line_items,
     :conversations,
     :comments,
+    :bank_accounts
   ]
 
   # `ROOT_DASHBOARD`
