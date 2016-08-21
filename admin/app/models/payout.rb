@@ -1,9 +1,11 @@
 class Payout < ActiveRecord::Base
 
-  PROCESSING_STATUS = 'processing'
-  PAID_STATUS = 'paid'
+  PAYOUT_STATUSES = ['paid', 'processing']
 
   belongs_to :user, primary_key: :uuid
+
+  validates :status, inclusion: { in: PAYOUT_STATUSES,
+                                  message: "%{value} is not a valid status. Valid ones: #{PAYOUT_STATUSES.join(', ')}" }
 
   def fulfillments
     sales = Sale.where(user_id: user.uuid)
