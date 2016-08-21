@@ -1,6 +1,6 @@
 class Payout < ActiveRecord::Base
 
-  PAYOUT_STATUSES = ['paid', 'processing']
+  PAYOUT_STATUSES = ['paid', 'processing', 'pending']
 
   belongs_to :user, primary_key: :uuid
 
