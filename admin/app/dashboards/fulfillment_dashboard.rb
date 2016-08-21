@@ -49,9 +49,6 @@ class FulfillmentDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :order,
-    :conversation,
-    :uuid,
     :status,
   ].freeze
 
