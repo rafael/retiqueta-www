@@ -10,6 +10,7 @@ class PayoutDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     user: Field::BelongsTo,
     id: Field::Number,
+    fulfillments: Field::HasMany.with_options(limit: 100),
     uuid: Field::String,
     amount: Field::Number.with_options(decimals: 2),
     status: Field::String,
@@ -35,6 +36,7 @@ class PayoutDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :user,
     :uuid,
+    :fulfillments,
     :amount,
     :status,
     :created_at,

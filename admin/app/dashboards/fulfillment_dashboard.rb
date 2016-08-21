@@ -27,8 +27,8 @@ class FulfillmentDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :order,
     :conversation,
-    :id,
     :uuid,
+    :status,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
