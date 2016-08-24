@@ -9,7 +9,7 @@ class UserDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     profile: Field::HasOne,
-    products: Field::HasMany,
+    products: Field::HasMany.with_options(limit: 150),
     push_tokens: Field::HasMany,
     id: Field::Number,
     username: Field::String,
