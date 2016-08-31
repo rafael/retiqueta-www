@@ -7,6 +7,16 @@
      align-items: center;
      justify-content: center;
   }
+
+  .tos {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     a:link {
+       color: white;
+     }
+     padding-bottom: 5px;
+  }
    
 
   .social-networks {
