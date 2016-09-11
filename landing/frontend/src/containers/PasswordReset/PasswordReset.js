@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { PasswordUpdateForm } from '../../components'
-import { actionCreators, UPDATE_COMPLETE_PATH } from '../../redux/modules/passwords'
+import { PasswordResetForm } from '../../components'
+import { actionCreators, RESET_COMPLETE_PATH } from '../../redux/modules/passwords'
 
-class PasswordUpdate extends React.Component {
+class PasswordReset extends React.Component {
   constructor(props) {
     super(props)
 
@@ -16,14 +16,19 @@ class PasswordUpdate extends React.Component {
     }
 
     this.onSubmit = this.onSubmit.bind(this)
+    this.onChange = this.onChange.bind(this)
   }
 
   onSubmit(values) {
-    this.props.update(values.password, this.props.token)
+    this.props.reset(values.email)
+  }
+
+  onChange(event) {
+    this.setState({ message: '' })
   }
 
   validateState(pathname, complete) {
-    if (pathname == UPDATE_COMPLETE_PATH && !complete) {
+    if (pathname == RESET_COMPLETE_PATH && !complete) {
       this.props.goHome()
       return false
     }
@@ -60,19 +65,21 @@ class PasswordUpdate extends React.Component {
   }
 
   render() {
+
     const content = this.state.complete ?
       <div className="message">{this.state.message}</div>
       :
-      <PasswordUpdateForm
+      <PasswordResetForm
         loading={this.state.loading}
-        onSubmit={this.onSubmit} />
+        onSubmit={this.onSubmit}
+        onChange={this.onChange}
+        message={this.state.message} />
 
     return (
-      <div className="PasswordUpdate">
+      <div className="PasswordReset">
         <div className="clearfix"></div>
         <div className="form-wrapper">
-
-          <h1>Cambiar contraseña</h1>
+          <h1>Recuperar contraseña</h1>
 
           <div className="form-inner-wrapper">
             {content}
@@ -87,9 +94,9 @@ const mapStateToProps = (state, ownProps) => {
   return {
     token: ownProps.params.token,
     pathname: ownProps.location.pathname,
-    message: state.passwords.updateMessage,
-    complete: state.passwords.updateComplete,
-    loading: state.passwords.updating
+    message: state.passwords.resetMessage,
+    complete: state.passwords.resetComplete,
+    loading: state.passwords.reseting
   }
 }
 
@@ -100,4 +107,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PasswordUpdate)
+)(PasswordReset)

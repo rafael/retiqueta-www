@@ -2,6 +2,7 @@ import React from 'react'
 import { Footer } from '../'
 
 require('./App.css')
+require('./Form.css')
 
 const logoUrl = require('./logo.png');
 

@@ -10,7 +10,8 @@ export default {
   api: {
     url: apiUrl,
     endpoints: {
-      resetPassword: endpoint('/v1/reset_password')
+      updatePassword: endpoint('/v1/reset_password'),
+      resetPassword: endpoint('/v1/send_password_reset')
     }
   }
 }

@@ -2,12 +2,12 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { validators } from '../../redux/modules/passwords'
 
-const loaderImgUrl = require('./loader.svg')
+const loaderImgUrl = require('../App/loader.svg')
 
-const renderField = ({ input, label, autoFocus, meta: { touched, error } }) => (
+const renderField = ({ input, label, autoFocus, disabled, meta: { touched, error } }) => (
   <div className="input-control">
     <label>{label}</label>
-    <input {...input} type="password" autoFocus={autoFocus} />
+    <input {...input} type="password" autoFocus={autoFocus} disabled={disabled} />
     {touched && error && <span className="tip">{error}</span>}
   </div>
 )
@@ -39,5 +39,5 @@ const PasswordUpdateForm = (props) => {
 
 export default reduxForm({
   form: 'password-update',
-  validate: validators.passwordUpdateForm
+  validate: validators.updateForm
 })(PasswordUpdateForm)

@@ -1,7 +1,16 @@
 @import '../../colors.css';
 
-.password-update-form-wrapper {
-  margin-top: 50px;
+.form-wrapper {
+  margin: 50px auto 0;
+  min-width: 300px;
+  max-width: 450px;
+
+  h1 {
+    font-weight: normal;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 35px;
+  }
 
   label {
     background: $color-geraldine;
@@ -16,7 +25,6 @@
 
   .input-control {
     margin: 0 auto 40px;
-    max-width: 400px;
 
     .tip {
       font-size: 0.8em;
@@ -26,7 +34,7 @@
     }
   }
 
-  input[type="password"] {
+  input[type="password"], input[type="email"], input[type="text"] {
     background: transparent;
     border: 1px solid #fff;
     color: inherit;
@@ -70,7 +78,6 @@
     outline: none;
     padding: 0;
     width: 100%;
-    max-width: 400px;
     text-align: center;
 
     &.disabled, &:disabled {
@@ -97,7 +104,7 @@
 }
 
 @media only screen and (min-width : 768px) {
-  .password-update-form-wrapper {
+  .form-wrapper {
     margin: 80px auto 0;
 
     label {
@@ -105,7 +112,7 @@
       margin-left: 15px;
     }
 
-    input[type="password"] {
+    input[type="password"], input[type="email"], input[type="text"] {
       height: 57px;
     }
 
@@ -114,25 +121,21 @@
     }
 
     .message {
-      font-size: 24px;
+      font-size: 16px;
     }
   }
 }
 
 @media only screen  and (min-width : 920px) {
-  .password-update-form-wrapper {
+  .form-wrapper {
     margin-top: 120px;
-
-    .message {
-      font-size: 36px;
-    }
   }
 }
 
 @media only screen  and (min-width : 1280px) {
-  .password-update-form-wrapper {
+  .form-wrapper {
 
-    input[type="password"] {
+    input[type="password"], input[type="email"], input[type="text"] {
       font-size: 25px;
     }
 
