@@ -9,7 +9,6 @@ const RESET           = 'retiqueta/passwords/RESET'
 const RESET_SUCCESS   = 'retiqueta/passwords/RESET_SUCCESS'
 const RESET_FAIL      = 'retiqueta/passwords/RESET_FAIL'
 
-const PASSWORD_MIN_LENGTH = 8
 const UNEXPECTED_ERROR_MESSAGE = 'Ha ocurrido un error, intenta de nuevo luego'
 const UPDATE_SUCCESS_MESSAGE = 'Tu contraseña ha sido modificada satisfactoriamente'
 const RESET_SUCCESS_MESSAGE = 'Te hemos enviado un correo electrónico con instrucciones para que puedas cambiar tu contraseña'
@@ -180,8 +179,8 @@ export const validators = {
   updateForm: values => {
     const errors = {}
 
-    if (!values.password || values.password.length < PASSWORD_MIN_LENGTH) {
-      errors.password = `Mínimo ${PASSWORD_MIN_LENGTH} caracteres`
+    if (!values.password) {
+      errors.password = "Password tiene que estar presente"
     }
 
     if (values.password && !values.passwordConfirmation) {
