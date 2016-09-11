@@ -1,1 +1,1 @@
-export { default as SubscribeForm } from './SubscribeForm/SubscribeForm'
+export { default as PasswordReset } from './PasswordReset/PasswordReset'
