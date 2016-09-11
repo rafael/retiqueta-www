@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { PasswordResetForm } from '../../components'
+import { PasswordUpdateForm } from '../../components'
 import { actionCreators, UPDATE_COMPLETE_PATH } from '../../redux/modules/passwords'
 
-require('./PasswordReset.css')
+require('./PasswordUpdate.css')
 
-class PasswordReset extends React.Component {
+class PasswordUpdate extends React.Component {
   constructor(props) {
     super(props)
 
@@ -65,16 +65,16 @@ class PasswordReset extends React.Component {
     const content = this.state.complete ?
       <div className="message">{this.state.message}</div>
       :
-      <PasswordResetForm
+      <PasswordUpdateForm
         loading={this.state.loading}
         onSubmit={this.onSubmit}
         onPasswordChange={this.onPasswordChange} />
 
     return (
-      <div className="PasswordReset">
+      <div className="PasswordUpdate">
         <div className="clearfix"></div>
-        <div id="password-reset-form-wrapper" className="password-reset-form-wrapper">
-          <div className="password-reset-form">
+        <div id="password-update-form-wrapper" className="password-update-form-wrapper">
+          <div className="password-update-form">
             {content}
           </div>
         </div>
@@ -100,4 +100,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PasswordReset)
+)(PasswordUpdate)

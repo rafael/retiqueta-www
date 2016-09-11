@@ -12,7 +12,7 @@ const renderField = ({ input, label, autoFocus, meta: { touched, error } }) => (
   </div>
 )
 
-const PasswordResetForm = (props) => {
+const PasswordUpdateForm = (props) => {
   const {
     handleSubmit,
     loading,
@@ -38,6 +38,6 @@ const PasswordResetForm = (props) => {
 }
 
 export default reduxForm({
-  form: 'password-reset',
-  validate: validators.passwordResetForm
-})(PasswordResetForm)
+  form: 'password-update',
+  validate: validators.passwordUpdateForm
+})(PasswordUpdateForm)
