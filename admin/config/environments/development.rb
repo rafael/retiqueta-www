@@ -38,4 +38,16 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  config.paperclip_defaults = {
+    storage: :fog,
+    fog_credentials:  {
+      provider: 'AWS',
+      region: 'us-west-1',
+      aws_access_key_id: '',
+      aws_secret_access_key: '',
+    },
+    fog_directory: '',
+    fog_host: 'https://d2xhr02146786q.cloudfront.net'
+  }
+
 end
