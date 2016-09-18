@@ -22,7 +22,7 @@ class Comment < ActiveRecord::Base
   end
 
   def conversation_type
-    Conversation.find(conversation_id).commentable_type
+    Conversation.find_by_id(conversation_id).try(:commentable_type) || 'unknown'
   end
 
   private
