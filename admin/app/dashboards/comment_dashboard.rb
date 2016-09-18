@@ -13,7 +13,7 @@ class CommentDashboard < Administrate::BaseDashboard
     conversation_id: Field::Number,
     uuid: Field::String,
     content: Field::String,
-    converstaion_type: Field::String,
+    conversation_type: Field::String,
     data: Field::Text,
     user_pic: Field::String,
     created_at: Field::DateTime,
