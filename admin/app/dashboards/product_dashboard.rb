@@ -45,6 +45,7 @@ class ProductDashboard < Administrate::BaseDashboard
     :description,
     :featured,
     :status,
+    :created_at
   ]
 
   # SHOW_PAGE_ATTRIBUTES
