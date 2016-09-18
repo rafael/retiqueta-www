@@ -1,3 +1,4 @@
+import fetch from 'isomorphic-fetch'
 import config from '../../config'
 import { push } from 'react-router-redux'
 import { LOCATION_CHANGE } from 'react-router-redux'
