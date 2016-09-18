@@ -21,6 +21,10 @@ class Comment < ActiveRecord::Base
     end
   end
 
+  def conversation_type
+    Conversation.find(conversation_id).commentable_type
+  end
+
   private
 
   def generate_uuid

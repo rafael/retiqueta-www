@@ -13,6 +13,7 @@ class CommentDashboard < Administrate::BaseDashboard
     conversation_id: Field::Number,
     uuid: Field::String,
     content: Field::String,
+    converstaion_type: Field::String,
     data: Field::Text,
     user_pic: Field::String,
     created_at: Field::DateTime,
@@ -27,6 +28,7 @@ class CommentDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :user,
     :content,
+    :conversation_type,
     :created_at
   ].freeze
 
@@ -34,9 +36,9 @@ class CommentDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :user,
-    :conversation_id,
     :uuid,
     :data,
+    :conversation_type,
     :created_at,
     :updated_at,
   ].freeze
