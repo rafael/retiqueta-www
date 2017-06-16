@@ -9,7 +9,7 @@ class ConversationDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     commentable: Field::Polymorphic,
-    comments: Field::HasMany,
+    comments: Field::HasMany.with_options(limit: 30),
     id: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
